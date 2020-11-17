@@ -1,0 +1,170 @@
+﻿@model Session5_HomeDemo.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    👩🏻‍💼 register now!
+</h1>
+<p>  Fill out the form below to register 😊 </p>
+<br />
+<a class="btn btn-primary btn-lg btn-action btn-circle dropleft " href="~/Home/Index" role="button"><i class="fa fa-home fa-2x h2"></i> 🏠</a>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md">
+        <form asp-action="SignUp">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group col-md-6">
+                🖍
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                🔑
+                <label asp-for="PassWord" class="control-label"></label>
+                <input asp-for="PassWord" class="form-control" />
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                📧
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-7">
+                🏠
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" class="form-control"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-3">
+                📫
+                <label asp-for="PostalCode" class="control-label"></label>
+                <input asp-for="PostalCode" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-md-7">
+                📱
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="09*********" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-5">
+                ☎
+                <label asp-for="HomePhone" class="control-label"></label>
+                <input asp-for="HomePhone" class="form-control" placeholder="021_22********" />
+                <span asp-validation-for="HomePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                ✔
+                <label asp-for="IdentificationCode" class="control-label">Identification Code(National Code)</label>
+                <input asp-for="IdentificationCode" class="form-control" />
+                <span asp-validation-for="IdentificationCode" class="text-danger"></span>
+            </div>
+
+
+         
+            <div class="form-group col col-md-4">
+                📢
+                <label asp-for="HowToFind" class="control-label">
+                    How did you get to know us?
+                </label>
+                <select asp-for="HowToFind" class="form-control" id="reg_panelId" tabindex="11">
+                    <option value="8">  TV </option>
+                    <option value="9">Other User </option>
+                    <option value="10"> Ads</option>
+                    <option value="77">Other way</option>
+                </select>
+                <span asp-validation-for="HowToFind" class="text-danger"></span>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    🏆
+                    <label class="control-label" for="reg_panelId">user panel</label>
+                    <select asp-for="UserPanel" class="form-control" id="reg_panelId" tabindex="11">
+                        <option value="8">  Silver user🥈 </option>
+                        <option value="9">golden  user 🥇</option>
+                        <option value="10"> Special user 🥉</option>
+                        <option value="77">bronze  user 🏅</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <span>Status:</span>
+
+                                <input asp-for="Status" type="radio" data-toggle="collapse" data-target="#collapseone" value="legal" />legal👨🏻‍💼
+                                <input asp-for="Status" type="radio" data-toggle="collapse" data-target="#collapsetwo" value="Real" /> Real🧑🏻
+                                <div class="panel-group" id="SelectedStatus">
+                                    <div class="panel panel-default">
+                                        <div id="collapseone" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <label asp-for="CompanyName" class="control-label"></label>
+                                                <input asp-for="CompanyName" class="form-control" />
+
+                                                <label asp-for="CopanyCode" class="control-label"></label>
+                                                <input asp-for="CopanyCode" class="form-control" />
+
+                                                <label asp-for="EconomyCode" class="control-label"></label>
+                                                <input asp-for="EconomyCode" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col col-md-5">
+                    📆
+                    <label asp-for="BirthDate" class="control-label"></label>
+                    <input asp-for="BirthDate" class="form-control" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+
+
+
+            </div>
+            <fieldset class="col-md-12  ">
+                <legend>🛡Proven</legend>
+                <div class="form-group text-center">
+                    <img id="captcha" class="tooltipBar" src=" http://panel.simorghsms.com/captcha.png " onclick="reloadCaptcha()" title="" data-original-title="Click for refresh!">
+                    <input type="text" class="form-control" id="reg_captcha" placeholder="Picture letters" tabindex="18" asp-for="CaptchaCode" maxlength="6">
+                    <span asp-validation-for="CaptchaCode" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group form-check">
+                    📝
+                    <label class="form-check-label col-md-12">
+                        <input class="form-check-input" asp-for="Reg_terms" />  <br /> I Accept  <a href="#termsModal" data-toggle="modal" data-target="#termsModal">Check out our Terms and Conditions FAQ</a>
+                    </label>
+                </div>
+            </fieldset>
+            <br />
+            <br />
+            <div class="form-group col col-md-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script language="javascript" type="text/javascript">
+    function reloadCaptcha() {
+        document.getElementById('captcha').src = document.getElementById('captcha').src + '?' + new Date();
+    }
+</script>
+
